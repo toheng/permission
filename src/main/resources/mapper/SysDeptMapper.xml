@@ -138,4 +138,10 @@
             operate_ip   = #{operateIp,jdbcType=VARCHAR}
         WHERE id = #{id,jdbcType=INTEGER}
     </update>
+
+    <select id="getAllDept" resultType="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_dept
+    </select>
 </mapper>

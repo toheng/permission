@@ -1,20 +1,30 @@
 package com.hengo.dao;
 
-import com.hengo.model.SysLog;
-import com.hengo.model.SysLogWithBLOBs;
+import com.hengo.model.SysRoleAcl;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface SysLogMapper {
+
     int deleteByPrimaryKey(Integer id);
 
-    int insert(SysLogWithBLOBs record);
+    int insert(SysRoleAcl record);
 
-    int insertSelective(SysLogWithBLOBs record);
+    int insertSelective(SysRoleAcl record);
 
-    SysLogWithBLOBs selectByPrimaryKey(Integer id);
+    SysRoleAcl selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(SysLogWithBLOBs record);
+    int updateByPrimaryKeySelective(SysRoleAcl record);
 
-    int updateByPrimaryKeyWithBLOBs(SysLogWithBLOBs record);
+    int updateByPrimaryKey(SysRoleAcl record);
 
-    int updateByPrimaryKey(SysLog record);
+    List<Integer> getAclIdListByRoleIdList(@Param("roleIdList") List<Integer> roleIdList);
+
+    void deleteByRoleId(@Param("roleId") int roleId);
+
+    void batchInsert(@Param("roleAclList") List<SysRoleAcl> roleAclList);
+
+    List<Integer> getRoleIdListByAclId(@Param("aclId") int aclId);
+
 }

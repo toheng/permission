@@ -49,5 +49,4 @@ public class JsonMapper {
             return null;
         }
     }
-
 }

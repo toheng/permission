@@ -30,7 +30,7 @@ public class BeanValidator {
             LinkedHashMap errors = Maps.newLinkedHashMap();
             Iterator iterator = validateResult.iterator();
             while (iterator.hasNext()) {
-                ConstraintViolation violation = (ConstraintViolation) iterator.next();
+                ConstraintViolation violation = (ConstraintViolation)iterator.next();
                 errors.put(violation.getPropertyPath().toString(), violation.getMessage());
             }
             return errors;
@@ -41,6 +41,7 @@ public class BeanValidator {
         Preconditions.checkNotNull(collection);
         Iterator iterator = collection.iterator();
         Map errors;
+
         do {
             if (!iterator.hasNext()) {
                 return Collections.emptyMap();
@@ -48,6 +49,7 @@ public class BeanValidator {
             Object object = iterator.next();
             errors = validate(object, new Class[0]);
         } while (errors.isEmpty());
+
         return errors;
     }
 

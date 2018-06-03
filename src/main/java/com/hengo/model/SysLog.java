@@ -1,7 +1,17 @@
 package com.hengo.model;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+
 import java.util.Date;
 
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class SysLog {
     private Integer id;
 
